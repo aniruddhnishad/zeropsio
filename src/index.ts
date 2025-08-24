@@ -1,12 +1,13 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-import { prettyJSON } from 'hono/pretty-json'
-import { secureHeaders } from 'hono/secure-headers'
-import { compress } from 'hono/compress'
+// import { prettyJSON } from 'hono/pretty-json'
+// import { secureHeaders } from 'hono/secure-headers'
+// import { compress } from 'hono/compress'
 import type { Server } from 'http';
 const app = new Hono()
-app.use(cors(), prettyJSON(), secureHeaders(), compress())
+//app.use(cors(), prettyJSON(), secureHeaders(), compress())
+app.use(cors())
 
 import appConfig from './config/appConfig.ts'
 
