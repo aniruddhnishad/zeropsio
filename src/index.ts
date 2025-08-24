@@ -8,7 +8,7 @@ import type { Server } from 'http';
 const app = new Hono()
 app.use(cors(), prettyJSON(), secureHeaders(), compress())
 
-import appConfig from "./config/appConfig.ts"
+import appConfig from './config/appConfig.ts'
 
 app.get('/', (c) => {
   // const env1 = env(c)
