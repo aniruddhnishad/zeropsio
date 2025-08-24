@@ -1,18 +1,16 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-// import { prettyJSON } from 'hono/pretty-json'
-// import { secureHeaders } from 'hono/secure-headers'
-// import { compress } from 'hono/compress'
-// import type { Server } from 'http';
+import { prettyJSON } from 'hono/pretty-json'
+import { secureHeaders } from 'hono/secure-headers'
+import { compress } from 'hono/compress'
 import * as dotenv from 'dotenv'
 dotenv.config();
 
 const PORT: number = Number(process.env.PORT) || 3000
 
 const app = new Hono()
-//app.use(cors(), prettyJSON(), secureHeaders(), compress())
-app.use(cors())
+app.use(cors(), prettyJSON(), secureHeaders(), compress())
 
 app.get('/', (c) => {
   // const env1 = env(c)
@@ -29,8 +27,3 @@ const server = serve({
 
 (server as any).keepAliveTimeout = 65000;
 (server as any).headersTimeout = 66000;
-
-// const httpServer = server as Server;
-
-// httpServer.keepAliveTimeout = 60 * 1000; 
-// httpServer.headersTimeout = 65 * 1000;
